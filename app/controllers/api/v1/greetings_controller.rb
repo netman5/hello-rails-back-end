@@ -1,11 +1,11 @@
 class Api::V1::GreetingsController < ApplicationController
-  before_action :set_api_v1_greeting, only: %i[ show update destroy ]
+  before_action :set_api_v1_greeting, only: %i[show update destroy]
 
   # GET /api/v1/greetings
   def index
     @greeting = Api::V1::Greeting.random_greeting
 
-    render json: @greeting
+    render json: { greetings: @greeting }
   end
 
   # GET /api/v1/greetings/1
@@ -39,13 +39,14 @@ class Api::V1::GreetingsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_api_v1_greeting
-      @api_v1_greeting = Api::V1::Greeting.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def api_v1_greeting_params
-      params.require(:api_v1_greeting).permit(:messagee)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_api_v1_greeting
+    @api_v1_greeting = Api::V1::Greeting.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def api_v1_greeting_params
+    params.require(:api_v1_greeting).permit(:messagee)
+  end
 end
