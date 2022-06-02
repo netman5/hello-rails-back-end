@@ -3,9 +3,9 @@ class Api::V1::GreetingsController < ApplicationController
 
   # GET /api/v1/greetings
   def index
-    @greeting = Api::V1::Greeting.random_greeting
+    @greeting = Api::V1::Greeting.order('RANDOM()').first
 
-    render json: { greetings: @greeting }
+    render json: { greetings: @greeting, status: :ok }
   end
 
   # GET /api/v1/greetings/1
