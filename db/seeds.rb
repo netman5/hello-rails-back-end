@@ -5,8 +5,8 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
-Greeting.create(:messagee => "Bonjour")
-Greeting.create(:messagee => "Hello people")
-Greeting.create(:messagee => "Hola")
-Greeting.create(:messagee => "Hallo")
-Greeting.create(:messagee => "Ciao")
+Api::V1::Greeting.create(:messagee => "Bonjour")
+Api::V1::Greeting.create(:messagee => "Hello people")
+Api::V1::Greeting.create(:messagee => "Hola")
+Api::V1::Greeting.create(:messagee => "Hallo")
+Api::V1::Greeting.create(:messagee => "Ciao")
